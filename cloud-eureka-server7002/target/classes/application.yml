@@ -1,0 +1,16 @@
+server:
+  port: 7002
+
+eureka:
+  instance:
+    # eureka instance name
+    hostname: eureka7002.com
+  client:
+    # false: disable self registration
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      # localhost
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # cluster
+      defaultZone: http://eureka7001.com:7001/eureka/

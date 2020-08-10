@@ -1,0 +1,20 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-order-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    # default: true, must be true if we would like to use load balance with ribbon
+    fetchRegistry: true
+    service-url:
+      ## localhost
+      # defaultZone: http://localhost:7001/eureka
+      ## cluster
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: order80
+    prefer-ip-address: true

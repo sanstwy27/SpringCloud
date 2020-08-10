@@ -1,0 +1,30 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:13306/cloud2020?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: cloud
+    password: cloud
+
+eureka:
+  client:
+    register-with-eureka: true
+    # default: true, must be true if we would like to use load balance with ribbon
+    fetchRegistry: true
+    service-url:
+      ## localhost
+      # defaultZone: http://localhost:7001/eureka
+      ## cluster
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: payment8001
+    prefer-ip-address: true
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: com.atsanstwy27.springcloud.entities    # Entity location
