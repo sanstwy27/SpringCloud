@@ -18,12 +18,16 @@ eureka:
     fetchRegistry: true
     service-url:
       ## localhost
-      # defaultZone: http://localhost:7001/eureka
+      defaultZone: http://localhost:7001/eureka
       ## cluster
-      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+      # defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
   instance:
     instance-id: payment8002
     prefer-ip-address: true
+    # Eureka heartbeat of client (default 30 second)
+    lease-renewal-interval-in-seconds: 1
+    # Eureka expiration duration of server (default 90 second)
+    lease-expiration-duration-in-seconds: 2
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
