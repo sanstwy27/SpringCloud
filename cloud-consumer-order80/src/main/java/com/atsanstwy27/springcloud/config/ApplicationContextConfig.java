@@ -13,7 +13,8 @@ import org.springframework.web.client.RestTemplate;
 public class ApplicationContextConfig {
     @Bean
     // Come up with OrderController -> Url.ServiceName
-    @LoadBalanced
+    // built-in load balance
+    // @LoadBalanced
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }

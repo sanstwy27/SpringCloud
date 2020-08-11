@@ -7,15 +7,15 @@ eureka:
     hostname: eureka7001.com
   server:
     # disable self-preservation
-    enable-self-preservation: false
+    # enable-self-preservation: false
     # Eureka client heartbeat (default 30sec)
-    lease-renewal-interval-in-seconds: 2
+    # lease-renewal-interval-in-seconds: 2
   client:
     # false: disable self registration
     register-with-eureka: false
     fetch-registry: false
     service-url:
       # localhost
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       # cluster
-      # defaultZone: http://eureka7002.com:7002/eureka/
+      defaultZone: http://eureka7002.com:7002/eureka/
