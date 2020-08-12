@@ -1,0 +1,18 @@
+server:
+  port: 80
+
+ribbon:
+  # Max Service Time
+  ReadTimeout: 40000
+  # Max Connection Time
+  ConnectTimeout: 40000
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+feign:
+  hystrix:
+    enabled: true
