@@ -1,0 +1,38 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # route microservices dynamically with registry
+          enabled: true
+      routes:
+        - id: payment_routh                    # payment_route, unique
+          #uri: http://localhost:8001           # matched route address
+          uri: lb://cloud-payment-service      # matched route address
+          predicates:
+            - Path=/payment/get/**
+
+        - id: payment_routh2 #payment_route    # payment_route, unique
+          #uri: http://localhost:8001           # matched route address
+          uri: lb://cloud-payment-service      # matched route address
+          predicates:
+            - Path=/payment/lb/**
+            #- After=2020-08-13T02:02:02.485+08:00[America/Denver]
+            # test cmd >> curl http://localhost:9527/payment/lb --cookie "username=atsanstwy27"
+            #- Cookie=username,atsanstwy27
+            # test cmd >> curl http://localhost:9527/payment/lb -H "X-Request-Id:3"
+            #- Header=X-Request-Id, \d+
+
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client:
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://eureka7001.com:7001/eureka
