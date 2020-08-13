@@ -1,0 +1,31 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      # branch name
+      label: master
+      ### config file
+      # prefix name
+      name: config
+      # suffix name
+      profile: dev
+      # result = http://config-3344.com:3344/master/config-dev.yml
+      uri: http://localhost:3344 #配置中心地址k
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+# expose monitor points
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+# refresh config
+# curl -X POST "http://localhost:3355/actuator/refresh"
