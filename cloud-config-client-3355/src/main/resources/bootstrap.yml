@@ -13,8 +13,9 @@ spring:
       name: config
       # suffix name
       profile: dev
+      # config center address
+      uri: http://localhost:3344
       # result = http://config-3344.com:3344/master/config-dev.yml
-      uri: http://localhost:3344 #配置中心地址k
 
 eureka:
   client:
