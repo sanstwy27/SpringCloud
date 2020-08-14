@@ -1,5 +1,5 @@
 server:
-  port: 3355
+  port: 3366
 
 spring:
   application:
@@ -29,7 +29,7 @@ management:
       exposure:
         include: "*"
 # refresh config
-# curl -X POST "http://localhost:3355/actuator/refresh"
+# curl -X POST "http://localhost:3366/actuator/refresh"
 
 ## rabbitmq
 # 15672 Web admin port

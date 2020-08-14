@@ -19,3 +19,20 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
+
+## refresh by rabbitmq
+# refresh all
+# curl -X POST "http://localhost:3344/actuator/bus-refresh"
+# refresh specific client
+# curl -X POST "http://localhost:3344/actuator/bus-refresh/config-client:3355"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
