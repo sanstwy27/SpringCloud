@@ -13,6 +13,11 @@
 
 
     <dependencies>
+        <!-- sleuth + zipkin -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!-- Payment Entity -->
         <dependency>
             <groupId>com.atsanstwy27.springcloud</groupId>
